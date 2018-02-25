@@ -4,5 +4,10 @@
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },"proxies": [
+    {
+      "path": "/auth",
+      "proxyUrl": "https://api.twitter.com/oauth2/token"
+    }
+  ]
 }
