@@ -2,4 +2,18 @@ page-tweets {
     ion-title{
         text-align: center;
     }
+
+    .button-padding{
+        padding-top: 10% !important;
+    }
+
+    ion-icon.ion-ios-search-outline{
+        font-size: 28px !important;
+    }
+
+    .error{
+        width: 100%;
+        text-align: center;
+        color: rgb(223, 35, 35);
+    }
 }

@@ -14,14 +14,23 @@ import { TwitterProvider } from '../../providers/twitter/twitter';
   templateUrl: 'tweets.html',
 })
 export class TweetsPage {
+  
+  q:string;
+  message:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
              private _twitterProvider:TwitterProvider){
+    this.message = "";
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TweetsPage');
-  }
+  ionViewDidLoad() {}
 
+  search(){
+    if(this.q != undefined && this.q != ""){
+
+    }else{
+     this.message = "Ingrese una palabra";
+    }
+   }
 
 }

@@ -14,4 +14,14 @@
 
 
 <ion-content padding>
+    <ion-row>
+        <ion-item ion-col col-10>
+          <ion-input type="text" [(ngModel)]="q" placeholder="buscar" clearInput></ion-input>
+        </ion-item>
+        <button class="button-padding" padding-vertical ion-col col-2 ion-button full icon-left clear (click)="search()">
+            <ion-spinner name="crescent" *ngIf="isLoading"></ion-spinner> 
+            <ion-icon name="ios-search-outline" *ngIf="!isLoading"></ion-icon>        
+        </button>
+        <p class="error" *ngIf="message">{{message}}</p>
+    </ion-row>
 </ion-content>

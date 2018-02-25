@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TwitterProvider } from '../providers/twitter/twitter';
+import { IonicStorageModule } from '@ionic/storage';
+import { StoreProvider } from '../providers/store/store';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,11 @@ import { TwitterProvider } from '../providers/twitter/twitter';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot({
+      name: 'test-ionic-twitter',
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -27,7 +33,8 @@ import { TwitterProvider } from '../providers/twitter/twitter';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TwitterProvider
+    TwitterProvider,
+    StoreProvider
   ]
 })
 export class AppModule {}
