@@ -12,7 +12,6 @@ import { Storage } from '@ionic/storage';
 export class StoreProvider {
 
   constructor(public http: HttpClient, public _storage:Storage) {
-    console.log('Hello StoreProvider Provider');
   }
 
    /// guardar el token

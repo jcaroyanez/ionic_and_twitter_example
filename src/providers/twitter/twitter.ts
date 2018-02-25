@@ -15,7 +15,6 @@ import { Platform } from 'ionic-angular';
 export class TwitterProvider {
 
   constructor(public http: HttpClient,private _plataform:Platform) {
-    console.log('Hello TwitterProvider Provider');
   }
 
   getTokenForAutentication(){
@@ -39,6 +38,10 @@ export class TwitterProvider {
     post(
       'auth',params.toString(),{headers:headers}
     );
+  }
+
+  getAllTwitter(q:string,token:string){
+     
   }
 
 }
