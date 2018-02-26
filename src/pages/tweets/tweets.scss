@@ -40,6 +40,41 @@ page-tweets {
     }
 
     .item-md.item-block .item-inner{
-        border-bottom: 1.4px solid #488aff; 
+        border-bottom: 1.4px solid #32CDFD; 
     }
+    .item-ios.item-block .item-inner{
+        border-bottom: 1.4px solid #32CDFD;
+    }
+
+    .list > .item-block:first-child {
+        border: medium none;
+    }
+
+    .list > .item-block:last-child{
+        border-bottom: none !important;
+    }
+  
+    .total-tweets{
+        padding: 5%;
+        display: block;
+        width: 100%;
+    }
+    
+    .total-tweets > ion-icon{
+        font-size: 30px;
+        color: #32CDFD;
+    }
+
+    .total-tweets > ion-icon > a{
+        font-size: 15px;
+        text-decoration: none;
+        color: rgb(245, 39, 39);
+    }
+
+    ion-spinner * {
+        width: 28px;
+        height: 28px;
+        stroke: #488aff !important;
+    }
+
 }

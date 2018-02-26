@@ -6,13 +6,36 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>detailTweet</ion-title>
+  <ion-navbar color="primary">
+    <ion-title></ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+ <ion-grid>
+   <ion-row>
+     <ion-col col-3>
+        <img   class="img-user" src="{{tweet.user.profile_image_url_https}}" alt="">
+     </ion-col>
+     <ion-col col-8>
+      <h3 class="names" text-wrap>{{tweet.user.name}}</h3>
+      <h2 class="screen-name" text-wrap>@{{tweet.user.screen_name}}</h2>
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col col-12>
+     <div class="text">
+      {{tweet.text}}
+     </div>
+     </ion-col>
+   </ion-row>
+   <img *ngIf="tweet.entities.media"  src="{{tweet.entities.media[0].media_url}}" alt="">
+   <ion-row>
+     <ion-col >
+       <p>{{tweet.created_at}}</p>
+     </ion-col>
+   </ion-row> 
+ </ion-grid>
 </ion-content>

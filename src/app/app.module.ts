@@ -5,15 +5,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { TwitterProvider } from '../providers/twitter/twitter';
 import { IonicStorageModule } from '@ionic/storage';
 import { StoreProvider } from '../providers/store/store';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -26,8 +24,7 @@ import { StoreProvider } from '../providers/store/store';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   providers: [
     StatusBar,

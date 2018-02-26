@@ -14,12 +14,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'detail-tweet.html',
 })
 export class DetailTweetPage {
+  
+  tweet:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.tweet = navParams.get('tweet');
+    this.tweet.created_at = this.tweet.created_at.replace('+0000',' ');
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailTweetPage');
-  }
+  ionViewDidLoad() {}
 
 }

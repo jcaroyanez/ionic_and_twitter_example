@@ -31,9 +31,10 @@ export class TweetsPage {
   ionViewDidLoad() {}
 
     search(){
-      this.isLoading = true;
+      
       if(this.q != undefined && this.q != ""){
-
+        this.message = "";
+        this.isLoading = true;
         this._storeProvider.getDato().then((tokenStore:any) => {
 
           if(tokenStore == null){
@@ -42,6 +43,7 @@ export class TweetsPage {
               this._storeProvider.setDato(this.token);
               this.getAlltweets(this.token);           
             },error=>{
+              alert("Error en la peticion");
               this.isLoading = false;
               console.log(error);
             })
@@ -59,13 +61,23 @@ export class TweetsPage {
   getAlltweets(token){
     this._twitterProvider.getAlltweets(this.q,token).subscribe((rest:any) => {
       this.listTweets = rest.statuses;
-      console.log('respuesta',rest);
     },error => {
       this.isLoading = false;
+      alert("Error en la peticion");
       console.log(error);
     },() => {
       this.isLoading = false;
     });
+  }
+
+  showDetail(tweet:any){
+    this.navCtrl.push('DetailTweetPage',{tweet:tweet});
+  }
+
+  eventHandler(keyCode) {
+    if(keyCode == 13){
+      this.search();
+    }
   }
 
 }
