@@ -19,15 +19,19 @@ export class TweetsPage {
   q:string;
   message:string;
   token:string;
+  listTweets:any;
+  isLoading:boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
              private _twitterProvider:TwitterProvider, private _storeProvider:StoreProvider){
     this.message = "";
+    this.isLoading = false;
   }
 
   ionViewDidLoad() {}
 
     search(){
+      this.isLoading = true;
       if(this.q != undefined && this.q != ""){
 
         this._storeProvider.getDato().then((tokenStore:any) => {
@@ -36,13 +40,14 @@ export class TweetsPage {
             this._twitterProvider.getTokenForAutentication().subscribe((rest:any) => {
               this.token = rest.access_token;
               this._storeProvider.setDato(this.token);
-              this.getAllTwitter(this.token);           
+              this.getAlltweets(this.token);           
             },error=>{
+              this.isLoading = false;
               console.log(error);
             })
           }else{
             this.token = tokenStore;
-            this.getAllTwitter(this.token); 
+            this.getAlltweets(this.token); 
           }
       
         });
@@ -51,7 +56,16 @@ export class TweetsPage {
       }
   }
 
-  getAllTwitter(token){
+  getAlltweets(token){
+    this._twitterProvider.getAlltweets(this.q,token).subscribe((rest:any) => {
+      this.listTweets = rest.statuses;
+      console.log('respuesta',rest);
+    },error => {
+      this.isLoading = false;
+      console.log(error);
+    },() => {
+      this.isLoading = false;
+    });
   }
 
 }

@@ -16,4 +16,30 @@ page-tweets {
         text-align: center;
         color: rgb(223, 35, 35);
     }
+
+    .names{
+        font-size: 20px;
+    }
+
+    ion-avatar > img{
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    ion-avatar{
+        padding-bottom: 50px;
+    }
+
+    .screen-name{
+       font-size: 12px;
+       color: gray;
+    }
+
+    .text{
+      color: black;
+    }
+
+    .item-md.item-block .item-inner{
+        border-bottom: 1.4px solid #488aff; 
+    }
 }

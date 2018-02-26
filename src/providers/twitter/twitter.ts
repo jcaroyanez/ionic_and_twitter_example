@@ -40,8 +40,14 @@ export class TwitterProvider {
     );
   }
 
-  getAllTwitter(q:string,token:string){
-     
+  getAlltweets(q:string,token:string){
+    const URL = '/apiTwitter/';
+    const headers = new HttpHeaders(
+      {
+        'Authorization':'Bearer'+" "+token
+      });
+
+     return this.http.get(URL+'search/tweets.json?q='+q,{headers:headers});
   }
 
 }

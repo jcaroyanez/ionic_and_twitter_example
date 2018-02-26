@@ -8,6 +8,10 @@
     {
       "path": "/auth",
       "proxyUrl": "https://api.twitter.com/oauth2/token"
+    },
+    {
+      "path": "/apiTwitter/",
+      "proxyUrl": "https://api.twitter.com/1.1/"
     }
   ]
 }
